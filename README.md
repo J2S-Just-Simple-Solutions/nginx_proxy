@@ -7,10 +7,12 @@ Gérer les redirections vers les différentes images docker et générer les cer
 
 ## Containers de ce projet :
 Nginx gère le système de redirection par l'intermédiaire des fichiers de configuration.
+
 Certbot gère la création et le renouvellement des cetificats SSL.
 
 ## Arborescence
 Les fichiers de configuration sont stockés dans le dossier nginx-config
+
 Les certificats SSL sont stockés dans le dossier letsencrypt.
 
 ## Pré-requis
@@ -110,6 +112,7 @@ Redémarrer Nginx
 
 [![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com)
 
-* ** Sébastien HERLANT **
-* ** J2S **
+** Sébastien HERLANT **
+
+** J2S **
 
