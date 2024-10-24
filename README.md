@@ -24,26 +24,34 @@ Les certificats SSL sont stockés dans le dossier letsencrypt.
 ## Installation et démarrage
 
 Cloner le repository sur le VPS ou le Serveur dédié
+
 `git clone https://github.com/J2S-Just-Simple-Solutions/nginx_proxy`
 
 Se positionner dans le dossier du projet
+
 `cd nginx-proxy`
 
 Créer les réseaux
+
 `docker network create registry`
-`docker network create akeneo`
+`docker network create suppliers_network`
+`docker network create customers_network`
+`docker network create internal_network`
 
 Démarrer le container
+
 `docker-compose up -d`
 
 ## Configuration initiale
 
 Se positionner dans le nginx-conf et créer un fichier de configuration initial pour la génération du certificat SSL.
+
 `nano monfichier1.conf`
 
 Utiliser la nomenclature suivante :
 
-`server {
+```
+server {
     listen 80;
     server_name mondomaine.com;
 
@@ -56,11 +64,12 @@ Utiliser la nomenclature suivante :
             return 301 https://$host$request_uri;
         }
     }
-}`
+}
+```
 
 *Générer autant de fichier de conf qu'il y a de domaine à configurer*
 
-## Génération du certiciat SSL
+## Génération du certificat SSL
 
 Utiliser la commande suivante pour générer le certificat SSL pour le domaine
 
@@ -69,16 +78,19 @@ Utiliser la commande suivante pour générer le certificat SSL pour le domaine
 *Commande à utiliser pour chaque domaine à configurer*
 
 Redémarrer Nginx
+
 `docker restart nginx_proxy`
 
 ## Configuration finale
 
 Modifier le fichier de configuration
+
 `nano monfichier1.conf`
 
 Utiliser la nomenclature suivante :
 
-`server {
+```
+server {
     listen 80;
     server_name mondomaine.com;
 
@@ -103,16 +115,17 @@ server {
     location / {
         proxy_pass http://container-projet:port;
     }
-}`
+}
+```
 
 Redémarrer Nginx
+
 `docker restart nginx_proxy`
 
 ## Auteurs
 
 [![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com)
 
-** Sébastien HERLANT **
-
-** J2S **
+### Sébastien HERLANT 
+### J2S 
 
