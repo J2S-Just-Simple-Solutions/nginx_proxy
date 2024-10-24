@@ -13,7 +13,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - registry
-      - site
+      - akeneo
     restart: always
 
   certbot:
@@ -25,12 +25,12 @@ services:
       - ./nginx-config:/etc/nginx/conf.d
     networks:
       - registry
-      - site
+      - akeneo
     restart: always
 
 networks:
   registry:
     external: true
-  site:
+  akeneo:
     external: true
 

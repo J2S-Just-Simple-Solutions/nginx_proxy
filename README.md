@@ -27,6 +27,10 @@ Cloner le repository sur le VPS ou le Serveur dédié
 Se positionner dans le dossier du projet
 `cd nginx-proxy`
 
+Créer les réseaux
+`docker network create registry`
+`docker network create akeneo`
+
 Démarrer le container
 `docker-compose up -d`
 
