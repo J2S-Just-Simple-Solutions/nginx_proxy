@@ -33,10 +33,12 @@ Se positionner dans le dossier du projet
 
 Créer les réseaux
 
-`docker network create registry`
-`docker network create suppliers_network`
-`docker network create customers_network`
-`docker network create internal_network`
+```
+docker network create registry
+docker network create suppliers_network
+docker network create customers_network
+docker network create internal_network
+```
 
 Démarrer le container
 
